@@ -1,5 +1,18 @@
-require "tolk_engine/version"
+require "tolk_engine/version.rb"
+
+require "active_support/dependencies"
 
 module TolkEngine
-  # Your code goes here...
+  # Our host application root path
+  # We set this when the engine is initialized
+   mattr_accessor :app_root
+
+    # Yield self on setup for nice config blocks
+  def self.setup
+    yield self
+  end
+
 end
+
+# Require our engine
+require "TolkEngine/lib/TolkEngine/engine"

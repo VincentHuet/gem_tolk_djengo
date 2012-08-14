@@ -1,6 +1,7 @@
 # TolkEngine
 
-TODO: Write a gem description
+An amazing app which provide you the ability to internationalize your main app
+You'll find an admin managing section, an translation summary section and an in-line translation webpage
 
 ## Installation
 
