@@ -6,7 +6,6 @@ Gem::Specification.new do |gem|
   gem.email         = ["vincent.alex.huet@gmail.com"]
   gem.description   = %q{An amazing app which provide you the ability to internationalize your main app}
   gem.summary       = %q{You'll find an admin managing section, an translation summary section and an in-line translation webpage}
-  gem.homepage      = ""
 
   gem.add_dependency 'rails', '3.2.7'
 

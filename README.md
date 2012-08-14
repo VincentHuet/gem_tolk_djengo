@@ -19,7 +19,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+  $ 1 install gems by pointing that repo
+  $ 2 rake TolkEngine:install:migrations
 
 ## Contributing
 
