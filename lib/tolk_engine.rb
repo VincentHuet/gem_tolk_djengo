@@ -1,6 +1,5 @@
-require "tolk_engine/version.rb"
-
-require "active_support/dependencies"
+require "tolk_engine/engine"
+require 'ya2yaml'
 
 module TolkEngine
   # Our host application root path
@@ -12,7 +11,16 @@ module TolkEngine
     yield self
   end
 
+  # Setup TolkEngine
+  def self.config(&block)
+    if block_given?
+      block.call(TolkEngine::Config)
+    else
+      TolkEngine::Config
+    end
+  end
 end
 
+
 # Require our engine
-require "TolkEngine/lib/TolkEngine/engine"
+require "TolkEngine/engine"
