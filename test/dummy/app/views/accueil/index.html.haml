@@ -1,0 +1,10 @@
+.center#home
+  .row
+    .span8.offset1
+      .header
+        %h1
+          Welcome on the Internationalizer WebSite
+        %h1= image_tag("tolk_engine/macbk.png")
+        .progress.progress-striped.active
+          .bar{:style => "width: 70%;"}
+        .btn.btn-info.active.btn-large= "There is #{@missing_translation} required translation(s)"

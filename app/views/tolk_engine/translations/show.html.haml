@@ -1,0 +1,21 @@
+%p#notice= notice
+%p
+  %b Text:
+  = @translation.text
+%p
+  %b Author:
+  = @translation.translator_id
+%p
+  %b Original text:
+  - primary_locale = Locale.primary_locale
+  %b= primary_locale.translations.where(:phrase_id => @translation.phrase_id).first.text
+%p
+  %b Locale:
+  = @relevant_locale_name
+%p
+  %b statut:
+  = @translation.needed_update
+
+= link_to 'Edit', edit_translation_path(@translation)
+|
+\#{link_to 'Back', locale_translations_path(@translation.locale)}

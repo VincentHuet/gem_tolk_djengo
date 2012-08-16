@@ -1,0 +1,65 @@
+
+.alert.alert-grey
+  .page-header
+    %h1= "These translations are refering to the folowing langage : #{@locales_name[current_translator.locale.name]}."
+    .offset02= "De plus, les traductions sont effectuées par #{current_translator.name}"
+
+  %table.table.table-condensed
+    %tr.font-size16
+      %td
+      %td
+        %strong
+          .span-text English
+      %td
+        %strong
+          .span-text Translation
+      %td
+        %strong
+          .span2 Creation date
+      %td
+        %strong
+          .span2 Update date
+      %td
+        %strong
+          .span1.offser05 Edit
+
+    - @update_dates.sort.each do |date|
+      - flag = 0
+      - @translations.each do |translation|
+        - if translation.need_updated? && translation.created_at.to_date != @latest_translation_load_date && translation.created_at.to_date.to_s == date.to_s
+          - if flag <= 0
+            %tr.alert.alert-error
+              %td{:colspan => "6"}
+                %i.icon-exclamation-sign
+                %i.icon-exclamation-sign
+                %strong.font-size16.black-shadow
+                  Still to do since
+                  = l date
+            - flag = 1
+          %tr.alert.alert-error#font-size14
+            = render 'translation_row', :translation => translation
+      - @translations.each do |translation|
+        - if translation.need_updated? && translation.created_at.to_date == @latest_translation_load_date && @latest_translation_load_date.to_s == date.to_s
+          - if flag <= 1
+            %tr.alert.alert-warning
+              %td{:colspan => "6"}
+                %i.icon-question-sign
+                %i.icon-exclamation-sign
+                  %strong.font-size16.black-shadow
+                    New to translate since
+                    = l @latest_translation_load_date
+            - flag = 2
+          %tr.alert.alert-warning#font-size14
+            = render 'translation_row', :translation => translation
+      - @translations.each do |translation|
+        - if !translation.need_updated? && translation.updated_at.to_date.to_s == date.to_s
+          - if flag <= 2
+            %tr.alert.alert-success
+              %td{:colspan => "6"}
+                %i.icon-ok-sign
+                  %strong.font-size16.black-shadow
+                    = t('what_has_been_done_on')
+                    = l date
+            - flag = 3
+          %tr.alert.alert-success#font-size14
+            = render 'translation_row', :translation => translation

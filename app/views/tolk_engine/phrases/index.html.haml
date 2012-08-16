@@ -1,0 +1,24 @@
+%p
+  %h1 Listing complet de la table phrase
+  %table#phrases-table
+    %tr
+      %td.bottom_border
+        #skinny
+          %strong Key
+      %td.bottom_border
+        #fat-path
+          %strong Path
+      %td.bottom_border
+        %strongEnglish Value
+      %td.bottom_border
+        %strong
+    - @phrases.sort_by{|e| e[:yaml_path]}.each do |phrase|
+      %tr
+        %td= phrase.id
+        %td= phrase.yaml_path
+        - current_locale = Locale.primary_locale
+        %td= current_locale.translations.where(:phrase_id => phrase.id).first.text
+%br
+= link_to 'New locale', new_locale_path
+%br
+= link_to 'New Yml Source', new_yml_source_path

@@ -1,0 +1,69 @@
+!!!
+%html
+  %head
+    %title DjengoTolkApplication
+    = stylesheet_link_tag    "tolk_engine/application", :media => "all"
+    = javascript_include_tag "tolk_engine/application"
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          = link_to root_path, :class => "brand" do
+            %i.icon-home
+            = "Djengo's Translation Platform "
+          .nav-collapse
+            %ul.nav
+              - if translator_signed_in?
+                %li
+                  = link_to locale_translations_path(current_translator.locale) do
+                    %i.icon-book
+                    Translation summary
+                - if current_translator.locale.is_primary?
+                  %li
+                    = link_to yml_sources_path do
+                      %i.icon-bookmark
+                      YAML Sources
+                - else
+                  %li
+                    = link_to translations_in_line_index_path do
+                      %i.icon-pencil
+                      Translation tool
+
+            %ul.nav.pull-right
+              - if translator_signed_in?
+                %li
+                  = link_to translator_path(current_translator) do
+                    %i.icon-user.font-size16
+                    %i.font-size14= current_translator.name.humanize
+                %li
+                  = link_to destroy_translator_session_path, :method => :delete do
+                    %i.icon-eject
+                    Logout
+              - else
+                %li
+                  = link_to new_translator_session_path do
+                    %i.icon-lock
+                    Sign In
+                %li
+                  = link_to new_translator_registration_path do
+                    %i.icon-plus-sign
+                    Sign Up
+              %li
+                = link_to request.fullpath do
+                  %i.icon-refresh
+                  Refresh
+    .container
+      .row
+        .span12
+          .row
+            .span4.offset4
+              = render 'tolk_engine/layouts/flash_msg', :flash => flash
+          .row
+            .span12
+              .hero-unit
+                = yield
+            .footer#custom_footer
+              = link_to main_app.root_path do
+                %i.icon-backward
+                » @ Vincent Huet - Djengo «

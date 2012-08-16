@@ -1,0 +1,14 @@
+.center#home
+  .row
+    .span8.offset1
+      .header
+        %h1
+          Welcome on the Internationalizer WebSite
+        %h1= link_to image_tag("tolk_engine/macbk.png"), translations_in_line_index_path
+        - if translator_signed_in?
+          .progress.progress-striped.active{:class => find_class_of_progess_bar(@ratio), }
+            .bar{:style => "width: #{@ratio}%;"}
+          = link_to "There is #{@missing_translation} required translation(s)", translations_in_line_index_path, :class => 'btn btn-info active btn-large'
+        - else
+          = link_to "Click here ton sign in", new_translator_session_path, :class => 'btn btn-info btn-large'
+          = link_to "Click here to sign up", new_translator_registration_path, :class => 'btn btn-large btn-primary'

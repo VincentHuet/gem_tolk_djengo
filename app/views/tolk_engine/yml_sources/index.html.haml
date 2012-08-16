@@ -1,0 +1,46 @@
+.page-header
+  %h1
+    %i.icon-bookmark
+      = raw("&nbsp;")
+      YML sources list
+    .pull-right
+      = link_to 'Load all files in DB', phrase_database_filler_index_path, :class => "btn btn-info grey"
+.row
+  .span10.offset1
+    %table.table.table-striped.table.table-condensed
+      %tr
+        %th
+          Name
+        %th
+          Path
+        %th
+          Loadind Button
+      - @yml_sources.each do |yml_source|
+        %tr
+          %td= yml_source.name
+          %td= yml_source.path
+          %td= link_to 'Load in DB', phrase_database_filler_path(yml_source), :class => "btn btn-info grey"
+%h1
+  %i.icon-plane
+    = raw("&nbsp;")
+    Locales
+.row
+  .span10.offset1
+    %table.table-striped.table-condensed
+      %tr
+        %td#span100
+          %strong Locale
+        %td
+          %strong Missing translation
+        %td
+          %strong Status
+        %td
+          %strong Option
+      - @locales.each do |locale|
+        %tr
+          %td#span100= link_to locale.name, locale_translations_path(locale)
+          %td= @missing_translations_quantity[locale.id]
+          %td= primary(locale)
+          %td
+            = link_to "Create YAML file", locale_yml_files_path(locale), :class => 'btn btn-info grey'
+            = link_to 'Destroy', locale, confirm: 'Are you sure?', method: :delete, :class => "btn btn-warning grey"
