@@ -23,4 +23,4 @@ end
 
 
 # Require our engine
-require "TolkEngine/engine"
+require "tolk_engine/engine"

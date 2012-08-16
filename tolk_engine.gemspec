@@ -3,7 +3,6 @@ $:.push File.expand_path("../lib", __FILE__)
 # Maintain your gem's version:
 require "tolk_engine/version"
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/tolk_engine/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.name          = 'tolk_djengo'
@@ -21,13 +20,12 @@ Gem::Specification.new do |s|
   s.add_dependency('rails', '3.2.7')
   s.add_dependency('will_paginate')
   s.add_dependency('ya2yaml', '~> 0.26')
-  s.add_dependency "jquery-rails")
+  s.add_dependency("jquery-rails")
   s.add_dependency('sass-rails', '~> 3.2.3')
   s.add_dependency('coffee-rails', '~> 3.2.1')
   s.add_dependency('twitter-bootstrap-rails')
   s.add_dependency('less-rails-bootstrap')
   s.add_dependency('less-rails-fontawesome')
-  s.add_dependency('therubyracer', :platforms => :ruby, :require => 'v8')
   s.add_dependency('uglifier', '>= 1.0.3')
   s.add_dependency('jquery-rails')
   s.add_dependency('devise')
