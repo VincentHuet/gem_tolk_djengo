@@ -5,7 +5,7 @@ require "tolk_engine/version"
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name          = 'tolk_djengo'
+  s.name          = 'tolk_engine'
   s.version       = TolkEngine::VERSION
   s.summary       = %q{You'll find an admin managing section, an translation summary section and an in-line translation webpage}
   s.description   = %q{An amazing app which provide you the ability to internationalize your main app}
