@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.homepage      = 'http://github.com/VincentHuet/s_tolk_djengo'
   s.platform      = Gem::Platform::RUBY
 
-  s.add_dependency('rails', '3.2.7')
+  s.add_dependency('rails', '~> 3.2.0')
   s.add_dependency('will_paginate')
   s.add_dependency('ya2yaml', '~> 0.26')
   s.add_dependency("jquery-rails")
