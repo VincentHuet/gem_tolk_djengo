@@ -18,7 +18,7 @@ module TolkEngine
         can :create, :all
       end
 
-      can :manage, Locale
+      can :manage, :all
     end
   end
 end
