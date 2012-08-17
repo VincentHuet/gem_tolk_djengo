@@ -1,3 +1,8 @@
 = TolkEngine
 
+Modifier your abilyt.rb model and add this line :
+
+can :manage, :all
+
+
 This project rocks and uses MIT-LICENSE.
