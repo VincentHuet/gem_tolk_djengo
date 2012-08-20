@@ -22,8 +22,8 @@ module TolkEngine
     ##
     # Associations
     #
-    belongs_to :locale, :dependent => :destroy
-    belongs_to :phrase, :dependent => :destroy
+    belongs_to :locale
+    belongs_to :phrase
     belongs_to :translator
 
     ##

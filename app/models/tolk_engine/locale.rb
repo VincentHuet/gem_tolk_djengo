@@ -13,8 +13,8 @@ module TolkEngine
     attr_accessible :name, :id, :primary_locale
 
     has_many :phrases
-    has_many :translations
-    has_many :translators
+    has_many :translations, :dependent => :destroy
+    has_many :translators, :dependent => :destroy
 
     #validates :primary_locale, presence => true
 

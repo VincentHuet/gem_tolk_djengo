@@ -13,7 +13,7 @@ module TolkEngine
     attr_accessible :key
     attr_accessible :yaml_path
 
-    has_many :translations
+    has_many :translations, :dependent => :destroy
 
   end
 end
