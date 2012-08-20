@@ -1,8 +1,11 @@
 = TolkEngine
 
-Modifier your abilyt.rb model and add this line :
+Modifie your abilyt.rb model and add this line :
 
 can :manage, :all
 
+Add that line to your_app/config/initializers/devise.rb
+
+config.router_name = :tolk_engine
 
 This project rocks and uses MIT-LICENSE.
