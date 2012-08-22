@@ -8,4 +8,8 @@ Add that line to your_app/config/initializers/devise.rb
 
 config.router_name = :tolk_engine
 
+add the following line to your routes.rb
+
+devise_for :translators, :controllers => { :registrations => ‘tolk_engine/custom_devise/registrations’, :sessions => ‘tolk_engine/custom_devise/sessions’ }, :class_name => ‘TolkEngine::Translator’, :module => :devise
+
 This project rocks and uses MIT-LICENSE.
