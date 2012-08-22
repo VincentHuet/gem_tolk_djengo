@@ -25,5 +25,17 @@ module TolkEngine
     def is_primary?
       primary_locale
     end
+
+    def self.missing_translation?
+      if !locale.nil?
+        current_done_translation = self.translations.where(:needed_update => 0).count
+        Phrase.phrase_quantity - current_done_translation
+      else
+        1
+      end
+    end
+
+
+
   end
 end

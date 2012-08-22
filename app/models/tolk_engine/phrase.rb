@@ -15,5 +15,12 @@ module TolkEngine
 
     has_many :translations, :dependent => :destroy
 
+
+    def self.phrase_quantity
+      reference_locale = Locale.primary_locale
+      reference_locale.nil? ? 0 : reference_locale.translations.count
+    end
+
+
   end
 end
