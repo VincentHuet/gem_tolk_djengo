@@ -18,7 +18,6 @@ module TolkEngine
       end
     end
 
-    private
     def standard_respond_to(class_type)
       respond_to do |format|
         format.html
