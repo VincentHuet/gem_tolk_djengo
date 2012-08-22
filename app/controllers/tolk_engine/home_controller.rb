@@ -8,8 +8,7 @@ module TolkEngine
 
     def index
       if translator_signed_in?
-        translator_locale = Locale.find(current_translator.locale.id)
-        @missing_translation = translator_locale.missing_translation?
+        @missing_translation = missing_translation?(Locale.find(current_translator.locale.id))
         @ratio = ratio(@missing_translation)
       end
     end
