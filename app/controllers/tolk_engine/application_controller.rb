@@ -18,7 +18,7 @@ module TolkEngine
       end
     end
 
-    protected
+    private
     def standard_respond_to(class_type)
       respond_to do |format|
         format.html
@@ -121,6 +121,20 @@ module TolkEngine
         relevant_phrase_text[translation.phrase_id] = relevant_phrase && relevant_phrase.text
         relevant_phrase_text
       end
+    end
+
+    def missing_translation?(locale)
+      if !locale.nil?
+        current_done_translation = locale.translations.where(:needed_update => 0).count
+        phrase_quantity - current_done_translation
+      else
+        1
+      end
+    end
+
+    def phrase_quantity
+      reference_locale = Locale.primary_locale
+      reference_locale.nil? ? 0 : reference_locale.translations.count
     end
 
   end
