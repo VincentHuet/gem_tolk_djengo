@@ -1,5 +1,5 @@
 module TolkEngine
-  class YmlFilesController < ActionController::Base
+  class YmlFilesController < TolkEngine::ApplicationController::Base
 
   	def index
   		@locale = Locale.find_by_id(params[:locale_id])

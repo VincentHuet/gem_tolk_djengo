@@ -1,5 +1,5 @@
 module TolkEngine
-  class TranslatorsController < ApplicationController
+  class TranslatorsController < TolkEngine::ApplicationController
     # GET /translators
     # GET /translators.json
      layout "tolk_engine/layouts/tolk_engine"

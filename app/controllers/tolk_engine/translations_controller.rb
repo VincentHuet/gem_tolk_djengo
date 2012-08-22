@@ -1,5 +1,5 @@
 module TolkEngine
-  class TranslationsController < ApplicationController
+  class TranslationsController < TolkEngine::ApplicationController
 
     # GET /translations
     # GET /translations.json

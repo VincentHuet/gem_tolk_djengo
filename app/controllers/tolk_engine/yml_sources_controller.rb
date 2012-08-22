@@ -1,5 +1,5 @@
 module TolkEngine
-  class YmlSourcesController < ApplicationController
+  class YmlSourcesController < TolkEngine::ApplicationController
     # GET /yml_sources
     # GET /yml_sources.json
 

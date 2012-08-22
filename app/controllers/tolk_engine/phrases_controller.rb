@@ -1,5 +1,5 @@
 module TolkEngine
-  class PhrasesController < ApplicationController
+  class PhrasesController < TolkEngine::ApplicationController
     # GET /phrases
     # GET /phrases.json
     layout "tolk_engine/layouts/tolk_engine"

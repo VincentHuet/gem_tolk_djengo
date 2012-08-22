@@ -1,5 +1,5 @@
 module TolkEngine
-  class LocalesController < ApplicationController
+  class LocalesController < TolkEngine::ApplicationController
 
     load_and_authorize_resource :locale, :class => TolkEngine::Locale
 

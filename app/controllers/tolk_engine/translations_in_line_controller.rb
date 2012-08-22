@@ -1,5 +1,5 @@
 module TolkEngine
-  class TranslationsInLineController < ApplicationController
+  class TranslationsInLineController < TolkEngine::ApplicationController
     before_filter :authenticate_translator!
     load_and_authorize_resource :translation, :class => TolkEngine::Translation
 
