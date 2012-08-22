@@ -7,6 +7,12 @@ module TolkEngine
      layout "tolk_engine/layouts/tolk_engine"
 
     def index
+      puts "-----------------------"
+
+      puts HomeController.ancestors.inspect
+      puts "-----------------------"
+
+
       if translator_signed_in?
         @missing_translation = missing_translation?(Locale.find(current_translator.locale.id))
         @ratio = ratio(@missing_translation)
