@@ -1,5 +1,5 @@
 module TolkEngine
-  class HomeController < ApplicationController
+  class HomeController < TolkEngine::ApplicationController
     protect_from_forgery
 
     require 'yaml'
