@@ -7,8 +7,8 @@ module TolkEngine
     load_and_authorize_resource :yml_source, :class => TolkEngine::YmlSource
 
     def index
-      @yml_files = YmlLoader.load_pathes
-      YmlLoader.load_locales  # YmlLoader.load_yml_content
+      @yml_files = TolkEngine::YmlLoader.load_pathes
+      TolkEngine::YmlLoader.load_locales  # YmlLoader.load_yml_content
 
       @locales = Locale.all
 
