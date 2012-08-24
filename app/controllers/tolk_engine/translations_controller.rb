@@ -22,7 +22,7 @@ module TolkEngine
       @update_dates = @translations.map {|translation| translation.updated_at.to_date}.uniq
 
       @relevant_phrase_text = create_phrase_translation_table(@translations)
-      @yml_hash = TranslationsManager.create_translation_hash(@translations)
+      @yml_hash = TolkEngine::TranslationsManager.create_translation_hash(@translations)
 
       standard_respond_to(@translations)
     end
@@ -32,6 +32,7 @@ module TolkEngine
     def show
       @relevant_locale = @translation.locale
       @relevant_locale_name = @relevant_locale.name
+
 
       respond_to do |format|
         format.html # show.html.erb
@@ -51,6 +52,14 @@ module TolkEngine
 
     # GET /translations/1/edit
     def edit
+      @translations_list = Translation.all
+
+      @translations_list.each do |translation|
+        if translation.locale_id == 1 && translation.phrase_id == @translation.phrase_id
+          @primary_translation = translation.text
+        end
+      end
+
     end
 
     # POST /translations

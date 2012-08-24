@@ -9,7 +9,7 @@
           %li= msg
   .span4.autoresize
     %h3= t("traduction pour »")
-    %p= Translation.where(:locale_id => 1).where(:phrase_id => @translation.phrase_id).first.text
+    %p= @primary_translation
   .field
     = f.text_area :text
   .actions

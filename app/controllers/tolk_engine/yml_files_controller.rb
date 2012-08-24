@@ -9,10 +9,10 @@ module TolkEngine
         @translations = Translation.all
       end
       @yml_hash = {}
-      @translation_hash = TranslationsManager.create_translation_hash(@translations)
-      @yml_hash = TranslationsManager.hash_to_export(@translation_hash, "", " ", "\n")
+      @translation_hash = TolkEngine::TranslationsManager.create_translation_hash(@translations)
+      @yml_hash = TolkEngine::TranslationsManager.hash_to_export(@translation_hash, "", " ", "\n")
       if !@yml_hash.blank?
-        YmlLoader.export_hash_to_yaml_locale(@yml_hash, @locale)
+        TolkEngine::YmlLoader.export_hash_to_yaml_locale(@yml_hash, @locale)
       end
       respond_to do |format|
      		if !request.env["HTTP_REFERER"].blank?

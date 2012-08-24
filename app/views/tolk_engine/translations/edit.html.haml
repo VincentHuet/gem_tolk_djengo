@@ -1,7 +1,28 @@
-.row
-  .span4.offset3.alert.alert-grey#home
-    %h1 Editing translation
-    .row
-      .span4= render 'form'
-    .span1.offset10= link_to 'Show', @translation, :class => 'btn btn-info'
-    .span1= link_to 'Back', locale_translations_path(current_translator.locale), :class => 'btn btn-warning'
+.center#home
+  .row
+    .span9
+      .header
+        %h1 Editing translation
+  .row
+    .span9
+      = form_for [@corresponding_phrase, @translation] do |f|
+        - if @translation.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(@translation.errors.count, "error")
+              prohibited this translation from being saved:
+            %ul
+              - @translation.errors.full_messages.each do |msg|
+                %li= msg
+        %p
+          Translation for : "
+          = @primary_translation
+          "
+        .field
+          = f.text_area :text
+        .actions
+          = f.submit
+  .row
+    .span9
+      = link_to 'Show', @translation, :class => 'btn btn-info'
+      = link_to 'Back', locale_translations_path(current_translator.locale), :class => 'btn btn-warning'
