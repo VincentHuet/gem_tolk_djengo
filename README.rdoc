@@ -4,8 +4,14 @@ Modifie your abilyt.rb model and add this line :
 
 can :manage, :all
 
-add the following line to your routes.rb
+add that gem to your gem file :
 
-devise_for :translators, :controllers => { :registrations => ‘tolk_engine/custom_devise/registrations’, :sessions => ‘tolk_engine/custom_devise/sessions’ }, :class_name => ‘TolkEngine::Translator’, :module => :devise
+gem 'tolk_engine', :git => 'git://github.com/VincentHuet/gem_tolk_djengo.git'
+
+add following lines to your routes.rb
+
+  mount TolkEngine::Engine => '/tolk_engine', :as => 'tolk_engine'
+
+  devise_for :translators, :controllers => { :registrations => ‘tolk_engine/custom_devise/registrations’, :sessions => ‘tolk_engine/custom_devise/sessions’ }, :class_name => ‘TolkEngine::Translator’, :module => :devise
 
 This project rocks and uses MIT-LICENSE.
