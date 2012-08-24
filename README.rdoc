@@ -2,36 +2,40 @@
 
 1 configuration de Devise :
 
- 1-1 Si devise n'est pas installé :
+ Si devise n'est pas installé :
 
-  1-1-1 ajouter à votre gem file :
+  1 ajouter à votre gem file :
     gem 'devise'
 
-  1-1-2 éxecuter :
+  2 éxecuter :
     bundle install
 
-  1-1-3 exécuter la commande :
+  3 exécuter la commande :
     rails generate devise:install
 
 
-
-
-Modifie your abilyt.rb model and add this line :
+2 Modifie your abilyt.rb model and add this line :
 
   can :manage, :all
 
-add that gem to your gem file :
+3 add that gem to your gem file :
 
   gem 'tolk_engine', :git => 'git://github.com/VincentHuet/gem_tolk_djengo.git'
 
-add following lines to your routes.rb
+4 add following lines to your routes.rb
 
   mount TolkEngine::Engine => '/tolk_engine', :as => 'tolk_engine'
 
   devise_for :translators, :controllers => { :registrations => ‘tolk_engine/custom_devise/registrations’, :sessions => ‘tolk_engine/custom_devise/sessions’ }, :class_name => ‘TolkEngine::Translator’, :module => :devise
 
-and then, run :
+5 then, run :
 
   bundle install
+
+6 finally, run:
+
+  rake tolk_engine:install:migrations
+
+  rake db:migrate
 
 This project rocks and uses MIT-LICENSE.
