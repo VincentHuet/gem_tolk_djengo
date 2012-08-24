@@ -30,4 +30,8 @@ add following lines to your routes.rb
 
   devise_for :translators, :controllers => { :registrations => ‘tolk_engine/custom_devise/registrations’, :sessions => ‘tolk_engine/custom_devise/sessions’ }, :class_name => ‘TolkEngine::Translator’, :module => :devise
 
+and then, run :
+
+  bundle install
+
 This project rocks and uses MIT-LICENSE.
