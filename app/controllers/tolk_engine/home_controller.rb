@@ -7,10 +7,11 @@ module TolkEngine
      layout "tolk_engine/layouts/tolk_engine"
 
     def index
-      puts "-----------------------"
+      @locales = Locale.all
 
-      puts HomeController.ancestors.inspect
-      puts "-----------------------"
+      if @locales.empty?
+        redirect_to tolk_engine.locales_path
+      end
 
 
       if translator_signed_in?
