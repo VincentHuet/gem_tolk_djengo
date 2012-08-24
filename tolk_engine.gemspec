@@ -37,8 +37,6 @@ Gem::Specification.new do |s|
   s.add_dependency('hpricot')
   s.add_dependency('ruby_parser')
 
-  s.add_development_dependency "sqlite3"
-
   s.files         = Dir['README', 'MIT-LICENSE', 'config/routes.rb', 'init.rb', 'lib/**/*', 'app/**/*', 'public/tolk_engine/**/*']
 
   s.require_path  = 'lib'
