@@ -1,12 +1,28 @@
 = TolkEngine
 
+1 configuration de Devise :
+
+ 1-1 Si devise n'est pas installé :
+
+  1-1-1 ajouter à votre gem file :
+    gem 'devise'
+
+  1-1-2 éxecuter :
+    bundle install
+
+  1-1-3 exécuter la commande :
+    rails generate devise:install
+
+
+
+
 Modifie your abilyt.rb model and add this line :
 
-can :manage, :all
+  can :manage, :all
 
 add that gem to your gem file :
 
-gem 'tolk_engine', :git => 'git://github.com/VincentHuet/gem_tolk_djengo.git'
+  gem 'tolk_engine', :git => 'git://github.com/VincentHuet/gem_tolk_djengo.git'
 
 add following lines to your routes.rb
 
