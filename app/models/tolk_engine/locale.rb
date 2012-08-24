@@ -12,6 +12,8 @@ module TolkEngine
   class Locale < ActiveRecord::Base
     attr_accessible :name, :id, :primary_locale
 
+    after_create :complete_translation_table
+
     has_many :phrases
     has_many :translations, :dependent => :destroy
     has_many :translators, :dependent => :destroy
@@ -35,6 +37,11 @@ module TolkEngine
       end
     end
 
+    def complete_translation_table
+      Phrase.find_each do |phrase|
+        TolkEngine::YmlLoader.populate_non_primary_translation_table(phrase)
+      end
+    end
 
 
   end

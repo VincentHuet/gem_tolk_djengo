@@ -67,18 +67,9 @@ module TolkEngine
         primary_update_translation = update_translations.where(:locale_id => primary_locale_for_translation.id)
 
         if primary_update_translation.first.text != hash_branch[sub_tree_key].to_s
-          puts "=================================================".inspect
-          puts primary_update_translation.first.text.inspect
-          puts "=================================================".inspect
-          puts hash_branch[sub_tree_key].to_s.inspect
-          puts "=================================================".inspect
-
           Translation.update(primary_update_translation.first.id, :text => hash_branch[sub_tree_key].to_s)
           counter = 1
         end
-        puts "=================================================".inspect
-        puts primary_update_translation.first.inspect
-        puts "=================================================".inspect
       end
       counter
     end

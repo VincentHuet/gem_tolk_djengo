@@ -20,7 +20,7 @@
               %td
                 %strong= @corresponding_phrase[translation.phrase_id]
                 .less-important= translation.phrase.yaml_path
-              %td= l(translation.created_at.to_date)
+              %td= translation.created_at.to_date
               %td= f.text_field :text
               = f.hidden_field :translator_id, :value => current_translator.id
     .span2.offset4= submit_tag

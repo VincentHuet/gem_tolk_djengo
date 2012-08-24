@@ -3,6 +3,7 @@ module TolkEngine
 
     load_and_authorize_resource :locale, :class => TolkEngine::Locale
 
+
     def index
       @missing_translation = {}
       @locales.each do |locale|
@@ -30,9 +31,6 @@ module TolkEngine
     # POST /locales
     # POST /locales.json
     def create
-      puts "-"*50
-      puts params.inspect
-      puts "-"*50
       @locale = Locale.new(params[:locale])
       create_respond_to(@locale)
     end
@@ -57,5 +55,6 @@ module TolkEngine
       current_done_translation = locale.translations.where(:needed_update => 0).count
       primary_keyword_quantity - current_done_translation
     end
+
   end
 end
