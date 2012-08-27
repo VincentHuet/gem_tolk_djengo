@@ -13,6 +13,7 @@ module TolkEngine
         cannot :read, YmlSource
         cannot :update, Locale
         cannot :create, Locale
+        cannot :destroy, Locale
         cannot :read, Translator
 
         can :update, Translation do |translation|
