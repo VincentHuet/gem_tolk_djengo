@@ -30,6 +30,7 @@ module TolkEngine
 
     # GET /translators/1/edit
     def edit
+      @locales = Locale.all
     end
 
     # POST /translators
