@@ -8,8 +8,11 @@ module TolkEngine
       if translator.admin
         can :manage, :all
       else
+        can :read, :all
+
         cannot :read, YmlSource
-        cannot :read, Locale
+        cannot :update, Locale
+        cannot :create, Locale
         cannot :read, Translator
 
         can :update, Translation do |translation|
