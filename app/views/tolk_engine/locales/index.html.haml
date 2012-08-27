@@ -17,6 +17,8 @@
       %td= link_to locale.name, locale_translations_path(locale)
       %td= @missing_translation[locale.name]
       %td= primary(locale)
-      %td= link_to 'Destroy', locale, confirm: 'Are you sure?', method: :delete, :class => "full-right"
+      - if (can? :update, locale)
+        %td= link_to 'Destroy', locale, confirm: 'Are you sure?', method: :delete, :class => "full-right"
 %br/
-= link_to 'New Locale', new_locale_path, :class => "btn full-right"
+- if (can? :create, locale)
+  = link_to 'New Locale', new_locale_path, :class => "btn full-right"
