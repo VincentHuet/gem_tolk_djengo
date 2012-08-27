@@ -3,7 +3,7 @@ class CreateTranslations < ActiveRecord::Migration
     create_table :tolk_engine_translations do |t|
       t.boolean :Primary_updated
       t.string :text
-      t.string :previous_text
+      t.integer :translator_id
       t.integer :phrase_id
       t.string :phrase
       t.integer :locale_id
