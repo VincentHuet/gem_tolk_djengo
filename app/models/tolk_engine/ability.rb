@@ -9,7 +9,7 @@ module TolkEngine
         can :manage, :all
       else
         cannot :read, YmlSource
-        cannot :read, locale
+        cannot :read, Locale
         cannot :read, Translator
 
         can :update, Translation do |translation|
