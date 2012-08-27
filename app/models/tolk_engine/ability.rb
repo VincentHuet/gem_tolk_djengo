@@ -8,9 +8,9 @@ module TolkEngine
       if translator.admin
         can :manage, :all
       else
-        can :read, :all
-
         cannot :read, YmlSource
+        cannot :read, locale
+        cannot :read, Translator
 
         can :update, Translation do |translation|
           translation.locale_id == translator.locale_id
